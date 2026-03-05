@@ -1,0 +1,35 @@
+/* Sunset Cellars — fermentation dashboard */
+/* Inspired by sunsetcellars.com: minimalist, wine-country */
+
+.app-container {
+    font-family: 'Lato', 'Helvetica Neue', sans-serif;
+}
+
+.dashboard-header h1 {
+    letter-spacing: 0.02em;
+}
+
+.card h2 {
+    letter-spacing: 0.01em;
+}
+
+/* Dropdowns: match card border */
+.Select-control,
+.dash-dropdown .Select-control {
+    border-color: #D4C4B0 !important;
+    border-radius: 6px;
+}
+
+.Select-menu-outer {
+    border-color: #D4C4B0;
+    border-radius: 6px;
+}
+
+/* Click instruction for note detail */
+#note-detail:not([style*="display: none"])::before {
+    content: "Selected point — note below";
+    display: block;
+    font-size: 0.75rem;
+    color: #5C5C5C;
+    margin-bottom: 0.5rem;
+}

@@ -1,0 +1,7 @@
+.venv/
+__pycache__/
+*.pyc
+.env
+data/google_credentials.json
+*.csv
+!data/fermentation_responses_sample.csv
