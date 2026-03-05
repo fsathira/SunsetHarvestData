@@ -1,6 +1,8 @@
 # Sunset Cellars — Harvest Fermentation Dashboard
 
-Fermentation tracking dashboard for **Sunset Cellars** (Suisun Valley, Fairfield, CA). Data is pulled **live from Google Sheets** (2025-first layout). For each fermentation (vintage + varietal + bin), the dashboard shows **Brix** and **must temperature** by **day** (days since first measurement), stacked with **Fairfield, CA weather** (air temperature and rain) over the same period. Team notes appear on hover and on click.
+Dashboard and data analysis of Sunset Cellars' harvest daily fermentation statistics.
+
+Fermentation tracking for **Sunset Cellars** (Suisun Valley, Fairfield, CA). Data is pulled **live from Google Sheets** (2025-first layout). For each fermentation (vintage + varietal + bin), the dashboard shows **Brix** and **must temperature** by **day** (days since first measurement), stacked with **Fairfield, CA weather** (air temperature and rain) over the same period. Team notes appear on hover and on click.
 
 - **Data source**: [Harvest Stats - Fermentation Tracking (Responses)](https://docs.google.com/spreadsheets/d/1NGHc3Q_jfsFJcWAtD34R_PjBmXzxj3hYeIQZvdt83RI/edit?gid=1688524201)
 - **Weather**: Open-Meteo Historical API (Fairfield coordinates), no API key required.
