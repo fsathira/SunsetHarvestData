@@ -5,6 +5,10 @@
     font-family: 'Lato', 'Helvetica Neue', sans-serif;
 }
 
+.dashboard-header img[alt="Sunset Cellars"] {
+    max-height: 52px;
+}
+
 .dashboard-header h1 {
     letter-spacing: 0.02em;
 }

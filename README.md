@@ -50,6 +50,28 @@ Then open **http://127.0.0.1:8050**.
 
 To force CSV-only (no Google Sheets), run with an explicit file or set `use_google_sheets=False` in code.
 
+## Static export (for web hosting)
+
+To host the dashboard as a **static site** (e.g. at `https://cs.stanford.edu/~user/projects/sunset_harvest_data.html`) with no server or Google API:
+
+1. Export your data from the Google Sheet as CSV and save it (e.g. `data/fermentation_responses_20260305.csv`).
+2. From the project root, run:
+   ```bash
+   python -m src.build_static path/to/your.csv -o dist
+   ```
+   Omit the CSV path to use all `*.csv` files in `data/` (combined).
+3. Upload the contents of the **`dist/`** folder to your web space (e.g. copy `dist/index.html` and the `dist/assets/` folder to `~/public_html/projects/`). If your server expects a specific filename, rename `index.html` to e.g. `sunset_harvest_data.html` and ensure links to `./assets/` still work (keep the `assets` folder next to the HTML file).
+
+The build script loads the CSV, runs the same QC and “day” logic as the live app, **pre-fetches Fairfield weather** for each fermentation’s date range (Open-Meteo at build time), and writes a single HTML file with embedded data plus Plotly.js. No server or credentials are needed when users open the page.
+
+**Server only has Python 2.6?** Use the standalone script (no pandas or other deps):
+
+```bash
+python scripts/build_static_py26.py data/fermentation_responses_20260305.csv -o dist
+```
+
+Copy `scripts/build_static_py26.py` and your CSV to the server if needed; the script only uses the Python 2.6 standard library and fetches weather at build time.
+
 ## Data pipeline and QC
 
 1. **Load** — `get_raw_data(use_google_sheets=True)` tries Google Sheets (2025-first), then CSV in `data/`.
@@ -68,13 +90,17 @@ HarvestData/
 │   └── fermentation_responses_sample.csv
 ├── assets/
 │   └── sunset_cellars.css
+├── dist/                # Static export output (after build_static)
+│   ├── index.html
+│   └── assets/
 └── src/
     ├── config.py        # Sheet ID, 2025-first flag
     ├── load_data.py     # get_raw_data() → Sheets or CSV
     ├── sheets_client.py # Live Google Sheets (2025-first)
     ├── weather.py       # Fairfield weather (Open-Meteo)
     ├── qc.py            # QC stub
-    └── dashboard.py     # Stacked Brix / temp / weather by day
+    ├── dashboard.py     # Stacked Brix / temp / weather by day
+    └── build_static.py  # Build static HTML from CSV
 ```
 
 ## Styling

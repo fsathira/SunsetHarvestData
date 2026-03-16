@@ -7,3 +7,5 @@ data/google_credentials.json
 !data/fermentation_responses_sample.csv
 !data/fermentation_responses_20260305.csv
 dist/
+dist_py26/
+data/client_secret*.json

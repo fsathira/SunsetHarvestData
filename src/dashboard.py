@@ -67,6 +67,7 @@ def make_layout(df: pd.DataFrame) -> html.Div:
         style={"backgroundColor": COLORS["bg"], "minHeight": "100vh", "fontFamily": FONT_BODY},
         children=[
             html.Link(rel="stylesheet", href="/assets/sunset_cellars.css"),
+            html.Link(rel="icon", href="/assets/favicon.ico", type="image/x-icon"),
             html.Header(
                 className="dashboard-header",
                 style={
@@ -76,6 +77,16 @@ def make_layout(df: pd.DataFrame) -> html.Div:
                     "marginBottom": "2rem",
                 },
                 children=[
+                    html.Img(
+                        src="/assets/SUNSET_LOGO_white.png",
+                        alt="Sunset Cellars",
+                        style={
+                            "height": "48px",
+                            "width": "auto",
+                            "display": "block",
+                            "marginBottom": "0.75rem",
+                        },
+                    ),
                     html.H1(
                         "Fermentation Tracking",
                         style={"fontFamily": FONT_FAMILY, "fontWeight": 600, "margin": 0, "fontSize": "1.75rem"},
