@@ -53,7 +53,7 @@ def build_payload(csv_path: Path | None, data_dir: Path | None) -> dict:
     lots = {}
 
     for (vintage, varietal, bin_val), g in df.groupby(["vintage", "Varietal", "Bin"]):
-        g = g.sort_values("Date of Measurement").dropna(subset=["Date of Measurement", "day"])
+        g = g.dropna(subset=["Date of Measurement", "day"]).sort_values("day")
         if g.empty:
             continue
         key_bins = f"{int(vintage)}|{varietal}"

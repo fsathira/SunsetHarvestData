@@ -177,7 +177,7 @@ def build_payload(rows):
         by_lot[(vint, varietal, bin_val)].append(r)
 
     for (vint, varietal, bin_val), group in by_lot.items():
-        group = sorted(group, key=lambda x: (x.get(DATE_COL),))
+        group = sorted(group, key=lambda x: (x.get("_day"), 0))
         key_bins = str(vint) + "|" + varietal
         if key_bins not in bins_by_key:
             bins_by_key[key_bins] = []
