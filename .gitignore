@@ -5,3 +5,5 @@ __pycache__/
 data/google_credentials.json
 *.csv
 !data/fermentation_responses_sample.csv
+!data/fermentation_responses_20260305.csv
+dist/
